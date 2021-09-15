@@ -3,6 +3,8 @@
 # must end with /
 base_dir = "/path/to/reiskosten/"
 
+your_name = 'John Doe'
+
 from_pht = ''
 to_pht = ''
 description = 'Woon - werk (+ retour)'

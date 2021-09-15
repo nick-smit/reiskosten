@@ -41,7 +41,7 @@ def writeSheet(filename: str):
             if col >= 2:
                 sheet.write(row, col, '', cell_format_border_right)
 
-    sheet.write('A7', 'Naam: Nick Smit', cell_format_name)
+    sheet.write('A7', f"Naam: {config.your_name}", cell_format_name)
 
 
 
