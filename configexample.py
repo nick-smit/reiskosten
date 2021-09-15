@@ -1,7 +1,7 @@
 # Copy this file to config.py and fill in the blanks
 
 # must end with /
-baseDir = "/path/to/reiskosten/"
+base_dir = "/path/to/reiskosten/"
 
 from_pht = ''
 to_pht = ''
