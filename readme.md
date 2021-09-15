@@ -5,7 +5,8 @@ This script will create a 'reiskosten declaratie' file for my current employer. 
 1. Install python3 and pip
 2. Run `pip3 install -r requirements.txt` in the repository directory
 3. Copy the configexample.py file to config.py and fill in the blanks
-4. Add the following commands to your crontab
+4. Run `ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/bin/airport` to make airport available to the script
+5. Add the following commands to your crontab
 
 ```
 # Reiskosten declaratie
