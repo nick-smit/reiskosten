@@ -7,17 +7,18 @@ import config
 
 def getAvailableSSIDS() -> list:
     print("Fetching available ssids")
-    # using the check_output() for having the network term retrival
-    result = subprocess.run(['/usr/local/bin/airport', '-s'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    scan_err = result.stderr
-    scan_out = result.stdout
+
+    airportProc = subprocess.Popen(['/usr/local/bin/airport', '-s'], stdout=subprocess.PIPE)
+    awkProc = subprocess.Popen(['awk', '{print $1}'], stdin=airportProc.stdout, stdout=subprocess.PIPE)
+    airportProc.stdout.close()
+    
+    scan_out, scan_err = awkProc.communicate()
 
     if scan_err != None:
         print(f"Unable to scan for wifi networks: {scan_err}")
         return []
 
     scan_out_lines = str(scan_out).split("\\n")[1:-1]
-
     ssids = []
     for each_line in scan_out_lines:
         ssids.append(re.split('\s([0-9a-f]{2}:?){6}\s', each_line)[0].strip())
