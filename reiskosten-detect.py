@@ -43,9 +43,8 @@ if __name__ == '__main__':
 
         # after 20th should be next month
         month = today.month
-        month = 11
         year = today.year
-        if True or today.day > config.send_on_day_of_month:
+        if today.day > config.send_on_day_of_month:
             if month == 12:
                 # add 1 for december case.
                 year += 1
